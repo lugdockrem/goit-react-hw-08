@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 import { addContact } from '../../redux/contacts/operations';
 import { selectContacts } from '../../redux/contacts/selectors';
 import styles from './ContactForm.module.css';
@@ -26,12 +27,19 @@ const ContactForm = () => {
     );
 
     if (isExist) {
-      alert(`${values.name} is already in contacts`);
+      toast.error(`${values.name} is already in contacts`);
       return;
     }
 
-    dispatch(addContact(values));
-    resetForm();
+    dispatch(addContact(values))
+      .unwrap()
+      .then(() => {
+        toast.success('Contact added successfully!');
+        resetForm();
+      })
+      .catch((error) => {
+        toast.error(`Failed to add contact: ${error}`);
+      });
   };
 
   return (

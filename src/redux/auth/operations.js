@@ -59,7 +59,7 @@ export const refreshUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      // Если токена нет, просто выходим без ошибки
+      // Якщо токена немає, просто виходимо без помилки
       return thunkAPI.rejectWithValue();
     }
 

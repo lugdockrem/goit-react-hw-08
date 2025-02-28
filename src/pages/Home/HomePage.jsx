@@ -10,6 +10,13 @@ const HomePage = () => {
       <p className={styles.description}>
         Please register or log in to start using the application.
       </p>
+      <div className={styles.imageContainer}>
+        <img 
+          src="https://i.gyazo.com/7b05e24c30de0de56272c5ea6c30772e.png" 
+          alt="Phonebook illustration" 
+          className={styles.image} 
+        />
+      </div>
     </div>
   );
 };

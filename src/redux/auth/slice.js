@@ -62,7 +62,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
-        // Убираем сообщение об ошибке при первом входе
+        // Прибираємо повідомлення про помилку при першому вході
       });
   },
 });
